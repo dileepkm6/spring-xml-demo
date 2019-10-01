@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-<!--    using index of property in constructor-->
-    <bean id="actorIndex" class="com.stackroute.domain.Actor">
-        <constructor-arg index="0" value="Dileep Maurya"/>
-        <constructor-arg index="1" value="Male"/>
-        <constructor-arg index="2" value="23"/>
-    </bean>
-    <!--    using type of property in constructor-->
-    <bean id="actorType" class="com.stackroute.domain.Actor">
-        <constructor-arg type="java.lang.String" value="Rajat Kumar"/>
-        <constructor-arg type="java.lang.String" value="Male"/>
-        <constructor-arg type="int" value="23"/>
-    </bean>
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    <context:annotation-config/>
     <!--    using name of property in constructor-->
-    <bean id="actorName" class="com.stackroute.domain.Actor">
+    <bean id="actor" class="com.stackroute.domain.Actor" autowire="byName">
         <constructor-arg name="name" value="Ayush"/>
         <constructor-arg name="gender" value="Male"/>
         <constructor-arg name="age" value="23"/>
     </bean>
-    <bean name="movieA,movieB" class="com.stackroute.domain.Movie">
-<!--        Initializing actor object with constructor-->
-        <constructor-arg name="actor" ref="actorIndex"/>
-    </bean>
+    <bean id="movie" class="com.stackroute.domain.Movie" autowire="byName" />
 
 </beans>
