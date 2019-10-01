@@ -22,7 +22,7 @@
         <constructor-arg name="gender" value="Male"/>
         <constructor-arg name="age" value="23"/>
     </bean>
-    <bean id="movie" class="com.stackroute.domain.Movie" scope="prototype">
+    <bean name="movieA,movieB" class="com.stackroute.domain.Movie">
 <!--        Initializing actor object with constructor-->
         <constructor-arg name="actor" ref="actorIndex"/>
     </bean>
