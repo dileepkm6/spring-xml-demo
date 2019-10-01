@@ -15,7 +15,7 @@ public class Main
         Movie movie_A=context.getBean("movie",Movie.class);
         Movie movie_B=context.getBean("movie",Movie.class);
         System.out.println("Name :"+movie_A.getActor().getName()+" gender:"+movie_A.getActor().getGender()+" age:"+movie_A.getActor().getAge());
-        //Default scope
+        //using scope as prototype
         System.out.println(movie_A==movie_B);
 
     }
