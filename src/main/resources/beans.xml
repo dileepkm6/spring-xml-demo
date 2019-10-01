@@ -3,14 +3,28 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="actor" class="com.stackroute.domain.Actor">
-        <property name="name" value="Aman Bhadani"/>
-        <property name="gender" value="Male"/>
-        <property name="age" value="23"/>
+
+<!--    using index of property in constructor-->
+    <bean id="actorIndex" class="com.stackroute.domain.Actor">
+        <constructor-arg index="0" value="Dileep Maurya"/>
+        <constructor-arg index="1" value="Male"/>
+        <constructor-arg index="2" value="23"/>
+    </bean>
+    <!--    using type of property in constructor-->
+    <bean id="actorType" class="com.stackroute.domain.Actor">
+        <constructor-arg type="java.lang.String" value="Rajat Kumar"/>
+        <constructor-arg type="java.lang.String" value="Male"/>
+        <constructor-arg type="int" value="23"/>
+    </bean>
+    <!--    using name of property in constructor-->
+    <bean id="actorName" class="com.stackroute.domain.Actor">
+        <constructor-arg name="name" value="Ayush"/>
+        <constructor-arg name="gender" value="Male"/>
+        <constructor-arg name="age" value="23"/>
     </bean>
     <bean id="movie" class="com.stackroute.domain.Movie">
-        <property name="actor" ref="actor"/>
-
+<!--        Initializing actor object with constructor-->
+        <constructor-arg name="actor" ref="actorIndex"/>
     </bean>
 
 </beans>
